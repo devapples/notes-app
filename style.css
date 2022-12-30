@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+body {
+    font-family: -apple-system, Arial, sans-serif;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.root {}
+.root__modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    z-index: 9999;
+}
+.root__modal--active {
+    transform: translateY(-1px);
+}
+.root__modal--active .modal__inner {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+.root__modal--active + .root__notes {
+    pointer-events: none;
+}
+.root__note {
+    position: absolute;
+    top: calc(var(--y) * 1px);
+    left: calc(var(--x) * 1px);
+    z-index: var(--z);
+}
+.root__note--scaled {
+    left: 0;
+    top: 0;
+    overflow: auto;
+    resize: none;
+}
+.root__note--scaled .note__main {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+.root__note--collapsed .note__main {
+    height: 0 !important;
+    min-height: 0;
+}
+
+.note {
+    --in-padd: 8px;
+}
+.note:not(.note--resize) .note__main {
+    transition-duration: 0.3s;
+}
+.note__inner {
+    border: 1px solid #999999;
+    box-shadow: 0 0 15px -3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #eeeeee;
+}
+.note__head {
+    background: #dddddd;
+    padding: var(--in-padd);
+}
+.note__title {}
+.note__toolbar {
+    display: flex;
+    align-items: center;
+}
+.note__btn {
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background: #aaaaaa;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.note__btn:hover {
+    filter: brightness(95%);
+}
+.note__btn--remove {
+    background: #ff605c;
+}
+.note__btn--collapse {
+    background: #ffbd44;
+}
+.note__btn--scale {
+    background: #00ca4e;
+}
+.note__main {
+    height: calc(var(--hgt) * 1px);
+    width: calc(var(--wid) * 1px);
+    min-height: 50px;
+    min-width: 150px;
+    overflow: auto;
+    resize: both;
+}
+.note__content {
+    padding: var(--in-padd);
+    outline: none;
+    height: 100%;
+    word-break: break-word;
+    overflow-y: scroll;
+    font-size: 15px;
+}
+
+.modal {}
+.modal__inner {
+    max-width: 95%;
+    width: 500px;
+    margin: 0 auto;
+    background: #eeeeee;
+    border: 1px solid #bbbbbb;
+    padding: 19px 17px;
+}
+.modal__text {
+    color: #222222;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.modal__text--main {
+    font-weight: bold;
+    font-size: 14.72px;
+    margin-bottom: 8px;
+}
+.modal__btnrow {
+    margin-top: 25px;
+    text-align: right;
+}
+.modal__button {
+    background: #ffffff;
+    border: 1px solid #bbbbbb;
+    padding: 2px 10px;
+    border-radius: 5px;
+    margin-left: 8px;
+    margin-top: 2px;
+    border-bottom-color: #aaaaaa;
+}
+.modal__button:active {
+    filter: brightness(90%);
+}
+.modal__button--cancel {
+    padding: 2px 20px;
+}
+.modal__button--ok {
+    padding: 2px 27px;
+    background: linear-gradient(#6ca5f8, #1671fb);
+    border-color: #569af8;
+    color: #ffffff;
+    border-bottom-color: #005ffc;
+}

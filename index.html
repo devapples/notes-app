@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes app</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+<div class="root">
+    <div class="root__modal modal modal--remove-note">
+        <div class="modal__inner">
+            <p class="modal__text modal__text--main">Are you sure to remove the note?</p>
+            <p class="modal__text">Use (Alt/Option)+Shift+Click next time to ignore this message</p>
+            <div class="modal__btnrow">
+                <button class="modal__button modal__button--cancel">Cancel</button>
+                <button class="modal__button modal__button--ok">OK</button>
+            </div>
+        </div>
+    </div>
+    <div class="root__notes"></div>
+</div>
+
+</body>
+</html>
