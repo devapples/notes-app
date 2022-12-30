@@ -207,10 +207,10 @@ function main() {
         });
         render();
     }
-    if (!_lsnotes) addNote('<div>Hello! It\'s Notes App.<br></div><div>* Press Ctrl+N to create a new note</div><div>* You can type anything in it<br></div><div>* Drag the head with click or Ctrl key to move notes</div><div>* Drag the bottom-right corner to resize<br></div><div>* Green button to scale notes fullscreen</div><div>* Yellow button to collapse</div><div>* Red button to remove</div><div>* * (Alt/Option)+Shift+Click to ignore confirmation<br></div><div>* The app auto-saves your work :)<br></div>', {x: 118, y: 51, w: 412, h: 284});
+    if (!_lsnotes) addNote('<div>Hello! It\'s Notes App.<br></div><div>* Press Shift+N to create a new note</div><div>* You can type anything in it<br></div><div>* Drag the head with click or Ctrl key to move notes</div><div>* Drag the bottom-right corner to resize<br></div><div>* Green button to scale notes fullscreen</div><div>* Yellow button to collapse</div><div>* Red button to remove</div><div>* * (Alt/Option)+Shift+Click to ignore confirmation<br></div><div>* The app auto-saves your work :)<br></div>', {x: 118, y: 51, w: 412, h: 284});
 
     window.addEventListener('keydown', function (event) {
-        if (event.ctrlKey && event.code === 'KeyN') addNote();
+        if (event.shiftKey && event.code === 'KeyN') addNote();
     });
 
     function modal(node, activecls, btns) {
